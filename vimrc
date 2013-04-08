@@ -4,6 +4,9 @@ source $VIMRUNTIME/mswin.vim
 behave mswin
 
 call pathogen#infect()
+call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
+
 
 set diffexpr=MyDiff()
 function MyDiff()
