@@ -1,5 +1,7 @@
 dotvim
 ======
+inicializarlo:
+git submodule update --init bundle/vim-colors-solarized
 
 Actualizar un solo plugin
 cd ~/.vim/bundle/fugitive
