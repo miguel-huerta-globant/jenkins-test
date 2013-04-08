@@ -92,3 +92,7 @@ set ofu=syntaxcomplete#Complete
 runtime macros/matchit.vim
 
 map <C-n> :NERDTreeToggle<CR>
+set background=light
+let g:solarized_termcolors=16
+colorscheme solarized
+
