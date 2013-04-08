@@ -93,6 +93,6 @@ runtime macros/matchit.vim
 
 map <C-n> :NERDTreeToggle<CR>
 set background=light
-let g:solarized_termcolors=16
+set t_Co=16
 colorscheme solarized
 
