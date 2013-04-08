@@ -4,7 +4,7 @@ source $VIMRUNTIME/mswin.vim
 behave mswin
 
 call pathogen#infect()
-call pathogen#runtime_append_all_bundles()
+call pathogen#incubate()
 call pathogen#helptags()
 
 
@@ -90,3 +90,5 @@ autocmd BufNewFile,BufReadPost *.ino,*.pde set filetype=cpp
 filetype plugin on
 set ofu=syntaxcomplete#Complete
 runtime macros/matchit.vim
+
+map <C-n> :NERDTreeToggle<CR>
