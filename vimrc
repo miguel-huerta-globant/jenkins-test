@@ -70,6 +70,7 @@ set shiftwidth=4
 set autoindent
 set nobackup
 set foldmethod=syntax
+set nofoldenable
 set guioptions=mlrTb
 set wrap!
 set ruler
