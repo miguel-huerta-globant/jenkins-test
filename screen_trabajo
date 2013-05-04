@@ -1,6 +1,6 @@
 startup_message off
 
-screen -t 'vim'' vim
+screen -t 'vim' vim
 screen -t 'mysql' mysql -uroot
 screen -t 'terminal1' 1 zsh
 screen -t 'catalog' /home/hgmiguel/Source/winbits/catalog-api 
