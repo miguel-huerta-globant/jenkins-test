@@ -9,7 +9,7 @@ call pathogen#helptags()
 
 
 set diffexpr=MyDiff()
-function MyDiff()
+function! MyDiff()
   let opt = '-a --binary '
   if &diffopt =~ 'icase' | let opt = opt . '-i ' | endif
   if &diffopt =~ 'iwhite' | let opt = opt . '-b ' | endif
@@ -100,3 +100,8 @@ set statusline=%F%m%r%h%w\
 set statusline+=%{fugitive#statusline()}\    
 set statusline+=[%{strlen(&fenc)?&fenc:&enc}]
 set statusline+=\ [line\ %l\/%L] 
+command! W w
+"Turn off the blinking cursor in normal mode:
+"set gcr=n:blinkono
+:autocmd InsertEnter * set cul
+:autocmd InsertLeave * set nocul

@@ -37,9 +37,10 @@ plugins=(git git-flow grails vi-mode)
 
 source $ZSH/oh-my-zsh.sh
 
-# Customize to your needs...
+# Customize to your needs...#sharing the history of the shells across your sessions
 export PATH=/home/hgmiguel/.gvm/groovy/current/bin:/home/hgmiguel/.gvm/grails/current/bin:/home/hgmiguel/.gvm/griffon/current/bin:/home/hgmiguel/.gvm/gradle/current/bin:/home/hgmiguel/.gvm/vertx/current/bin:/home/hgmiguel/.gvm/bin:/home/hgmiguel/.gvm/ext:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
 
 export JAVA_HOME=/usr/lib/jvm/java-7-oracle/
 source ~/.gvm/bin/gvm-init.sh
-
+#sharing the history of the shells across your sessions
+setopt SHARE_HISTORY
