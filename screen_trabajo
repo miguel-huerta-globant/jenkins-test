@@ -2,10 +2,14 @@ startup_message off
 
 screen -t 'vim' vim
 screen -t 'mysql' mysql -uroot
-screen -t 'terminal1' 1 zsh
-screen -t 'catalog' /home/hgmiguel/Source/winbits/catalog-api 
-screen -t 'bits' /home/hgmiguel/Source/winbits/bits-api 
-screen -t 'domain' /home/hgmiguel/Source/winbits/domain-model
+chdir /home/hgmiguel/Source/winbits/catalog-api/ 
+screen -t 'catalog' 
+chdir /home/hgmiguel/Source/winbits/bits-api/  
+screen -t 'bits'
+chdir /home/hgmiguel/Source/winbits/domain-model/
+screen -t 'domain' 
+chdir ~
+screen -t 'terminal1' zsh 
 altscreen on
 term screen-256color
 bind ',' prev
