@@ -114,4 +114,4 @@ if exists(":Tabularize")
   vmap <Leader>a: :Tabularize /:\zs<CR>
 endif
 
-
+set wildignore+=*.class,.git,.hg,.svn,target/**
