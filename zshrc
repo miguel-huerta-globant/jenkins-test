@@ -44,3 +44,4 @@ export JAVA_HOME=/usr/lib/jvm/java-7-oracle/
 source ~/.gvm/bin/gvm-init.sh
 #sharing the history of the shells across your sessions
 setopt SHARE_HISTORY
+stty -ixon -ixoff
