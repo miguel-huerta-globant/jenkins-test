@@ -31,3 +31,6 @@
 [submodule "bundle/vim-surround"]
 	path = bundle/vim-surround
 	url = git://github.com/tpope/vim-surround.git
+[submodule "bundle/vim-grails-import"]
+	path = bundle/vim-grails-import
+	url = git@github.com:sjurgemeyer/vim-grails-import.git
