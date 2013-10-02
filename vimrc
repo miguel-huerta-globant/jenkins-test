@@ -64,8 +64,10 @@ autocmd BufNewFile,BufReadPost *.ino,*.pde set filetype=cpp
 
 filetype plugin on
 set ofu=syntaxcomplete#Complete
-runtime macros/matchit.vim
+"runtime macros/matchit.vim
 
+
+let g:multi_cursor_next_key='<C-m>'
 map <C-n> :NERDTreeToggle<CR>
 set background=dark
 set t_Co=16
@@ -158,3 +160,10 @@ map <leader>tm :tabmove
 
 map <leader>f :CommandTFlush<CR>
 
+:au FocusLost * silent! wa
+:set autowrite
+
+
+map <leader>pt :vs ~/.thyme_today.md<cr>
+map <leader>pd :!thyme -d<cr>
+map <leader>ps :!thyme -s<cr>

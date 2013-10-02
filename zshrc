@@ -45,3 +45,4 @@ source ~/.gvm/bin/gvm-init.sh
 #sharing the history of the shells across your sessions
 setopt SHARE_HISTORY
 stty -ixon -ixoff
+alias tmux="TERM=screen-256color-bce tmux"

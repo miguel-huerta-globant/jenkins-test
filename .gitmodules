@@ -34,3 +34,12 @@
 [submodule "bundle/vim-grails-import"]
 	path = bundle/vim-grails-import
 	url = git@github.com:sjurgemeyer/vim-grails-import.git
+[submodule "bundle/nerdcommenter"]
+	path = bundle/nerdcommenter
+	url = https://github.com/scrooloose/nerdcommenter.git
+[submodule "bundle/vim-matchit"]
+	path = bundle/vim-matchit
+	url = git@github.com:tsaleh/vim-matchit.git
+[submodule "bundle/vim-multiple-cursors"]
+	path = bundle/vim-multiple-cursors
+	url = git@github.com:terryma/vim-multiple-cursors.git
