@@ -167,3 +167,36 @@ map <leader>f :CommandTFlush<CR>
 map <leader>pt :vs ~/.thyme_today.md<cr>
 map <leader>pd :!thyme -d<cr>
 map <leader>ps :!thyme -s<cr>
+
+autocmd FileType groovy setlocal shiftwidth=2 tabstop=2
+
+
+"Grails testing
+map <S-F9> <Esc>:w<CR>:call RunSingleGrailsTest()<CR>
+map <F9> <Esc>:w<CR>:call RunGrailsTestFile()<CR>
+map <D-F9> :call RunLastCommandInTerminal()<CR>
+command! TestResults :call TestResults()
+
+function! RunSingleGrailsTest()
+    let testName = expand("%:t:r.") . "." . expand("<cword>")
+    :call RunGrailsTest(testName)
+endfunction
+
+function! RunGrailsTestFile()
+    let testName = expand("%:t:r")
+    :call RunGrailsTest(testName)
+endfunction
+
+function! RunGrailsTest(testName)
+    let path = expand("%:r")
+    if path =~ "integration"
+        let flag = "--integration"
+    else
+        let flag = "--unit"
+    endif
+    execute ":!grails test-app " . flag . " " . a:testName
+endfunction
+
+function! TestResults()
+    execute ":!gnome-open target/test-reports/html/index.html"
+endfunction

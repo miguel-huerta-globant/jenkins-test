@@ -46,3 +46,4 @@ source ~/.gvm/bin/gvm-init.sh
 setopt SHARE_HISTORY
 stty -ixon -ixoff
 alias tmux="TERM=screen-256color-bce tmux"
+alias tmuxinator="TERM=screen-256color-bce tmuxinator"

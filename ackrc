@@ -5,3 +5,5 @@
 --type-set=coffee=.coffee
 --type-set=groovy=.groovy
 
+--type-set=hbs=.hbs
+--type-set=less=.less
