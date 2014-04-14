@@ -200,3 +200,9 @@ endfunction
 function! TestResults()
     execute ":!gnome-open target/test-reports/html/index.html"
 endfunction
+
+
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
