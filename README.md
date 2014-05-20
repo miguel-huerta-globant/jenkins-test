@@ -10,3 +10,4 @@ git pull origin master
 Actualizar todos los plugins
 git submodule foreach git pull origin master
 
+mkdir $HOME/.backup

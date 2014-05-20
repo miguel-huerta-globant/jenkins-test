@@ -1,41 +1,42 @@
-let mapleader=','
 set nocompatible
-source $VIMRUNTIME/vimrc_example.vim
-source $VIMRUNTIME/mswin.vim
-behave mswin
+filetype off 
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+" plugins
+Plugin 'airblade/vim-gitgutter'
+Plugin 'Tabular'
+Plugin 'farseer90718/vim-taskwarrior'
+Plugin 'NathanNeff/grails-vim'
+Bundle 'mileszs/ack.vim'
+Bundle 'sjurgemeyer/vim-grails-import'
+Bundle 'karlbright/qfdo.vim'
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'tpope/vim-surround'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
 
 call pathogen#infect()
 call pathogen#incubate()
 call pathogen#helptags()
 
+filetype plugin indent on    " required
 
-" Empieza lo mio
-function! TextEnableCodeSnip(filetype,start,end,textSnipHl) abort
-  let ft=toupper(a:filetype)
-  let group='textGroup'.ft
-  if exists('b:current_syntax')
-    let s:current_syntax=b:current_syntax
-    " Remove current syntax definition, as some syntax files (e.g. cpp.vim)
-    " do nothing if b:current_syntax is defined.
-    unlet b:current_syntax
-  endif
-  execute 'syntax include @'.group.' syntax/'.a:filetype.'.vim'
-  try
-    execute 'syntax include @'.group.' after/syntax/'.a:filetype.'.vim'
-  catch
-  endtry
-  if exists('s:current_syntax')
-    let b:current_syntax=s:current_syntax
-  else
-    unlet b:current_syntax
-  endif
-  execute 'syntax region textSnip'.ft.'
-  \ matchgroup='.a:textSnipHl.'
-  \ start="'.a:start.'" end="'.a:end.'"
-  \ contains=@'.group
-endfunction
+let mapleader=','
+" source $VIMRUNTIME/vimrc_example.vim
+" source $VIMRUNTIME/mswin.vim
+" behave mswin
 
-
+syntax on
+set hlsearch
 set number
 set expandtab
 set tabstop=8
@@ -50,25 +51,30 @@ set wrap!
 set ruler
 set history=200
 
-:nmap <F3> :read !pwgen -cnB 8 1 <CR>
-:nmap <f4> "=strftime("%c")<CR>P
+":nmap <F3> :read !pwgen -cnB 8 1 <CR>
+":nmap <f4> "=strftime("%c")<CR>P
 
-
-cnoremap <C-p> <Up>
-cnoremap <C-n> <Down>
+"cnoremap <C-p> <Up>
+"cnoremap <C-n> <Down>
 
 let g:vim_arduino_sketchbook='/home/hgmiguel/sketchbook/'
 let g:vim_arduino_sdk_home='/usr/share/arduino/'
 let g:vim_arduino_port='/dev/ttyUSB0'
 autocmd BufNewFile,BufReadPost *.ino,*.pde set filetype=cpp
 
-filetype plugin on
 set ofu=syntaxcomplete#Complete
 "runtime macros/matchit.vim
 
 
+set term=xterm-256color
 let g:multi_cursor_next_key='<C-m>'
+
 map <C-n> :NERDTreeToggle<CR>
+let g:NERDTreeMinimalUI=1
+let g:NERDTreeDirArrows=0
+
+let g:fugitive_git_executable='LANG=en_US.UTF8 git'
+
 set background=dark
 set t_Co=16
 colorscheme solarized
@@ -103,8 +109,6 @@ set wildignore+=*.class,.git,.hg,.svn,target/**
  \ 'v:variables',
  \ ]
  \ }
-
-
 
 
 let g:tagbar_type_coffee = {
@@ -160,9 +164,13 @@ map <leader>tm :tabmove
 
 map <leader>f :CommandTFlush<CR>
 
-:au FocusLost * silent! wa
+map <leader>b :CtrlPMRU<CR>
+
+:au FocusLost * :wa
 :set autowrite
 
+set backupdir=./.backup,.,/tmp
+set directory=./.backup,/tmp
 
 map <leader>pt :vs ~/.thyme_today.md<cr>
 map <leader>pd :!thyme -d<cr>
