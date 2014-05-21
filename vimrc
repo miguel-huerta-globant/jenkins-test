@@ -20,6 +20,7 @@ Bundle 'sjurgemeyer/vim-grails-import'
 Bundle 'karlbright/qfdo.vim'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-fugitive'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -214,3 +215,8 @@ au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
+
+"to work with fuckin max osx
+set clipboard=unnamed
+
+let g:grails_import_list_file='/Users/miguel/.vim/grailsImportList.txt'
