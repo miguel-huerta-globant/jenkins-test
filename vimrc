@@ -180,11 +180,26 @@ map <leader>ps :!thyme -s<cr>
 autocmd FileType groovy setlocal shiftwidth=2 tabstop=2
 
 
+function! GetRunningOS()
+  if has("win32")
+    return "win"
+  endif
+  if has("unix")
+    if system('uname')=~'Darwin'
+      return "mac"
+    else
+      return "linux"
+    endif
+  endif
+endfunction
+let os=GetRunningOS()
+
 "Grails testing
 map <S-F9> <Esc>:w<CR>:call RunSingleGrailsTest()<CR>
 map <F9> <Esc>:w<CR>:call RunGrailsTestFile()<CR>
 map <D-F9> :call RunLastCommandInTerminal()<CR>
 command! TestResults :call TestResults()
+map <leader>gi :call TestResults()<CR>
 
 function! RunSingleGrailsTest()
     let testName = expand("%:t:r.") . "." . expand("<cword>")
@@ -206,8 +221,14 @@ function! RunGrailsTest(testName)
     execute ":!grails test-app " . flag . " " . a:testName
 endfunction
 
+
 function! TestResults()
-    execute ":!gnome-open target/test-reports/html/index.html"
+    let os=GetRunningOS()
+    if os=~"unix"
+        execute ":!gnome-open target/test-reports/html/index.html"
+    else
+        execute ":!open target/test-reports/html/index.html"
+    endif
 endfunction
 
 
