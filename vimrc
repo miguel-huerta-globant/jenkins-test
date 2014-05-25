@@ -220,4 +220,4 @@ au Syntax * RainbowParenthesesLoadBraces
 "to work with fuckin max osx
 set clipboard=unnamed
 
-let g:grails_import_list_file='/Users/miguel/.vim/grailsImportList.txt'
+let g:grails_import_list_file=$HOME."/.vim/grailsImportList.txt"
