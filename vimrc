@@ -21,6 +21,7 @@ Bundle 'karlbright/qfdo.vim'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-fugitive'
+Bundle 'christoomey/vim-tmux-navigator'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -76,7 +77,7 @@ let g:NERDTreeDirArrows=0
 
 let g:fugitive_git_executable='LANG=en_US.UTF8 git'
 
-set background=dark
+set background=light
 set t_Co=16
 colorscheme solarized
 set statusline=%F%m%r%h%w\ 
@@ -240,6 +241,5 @@ au Syntax * RainbowParenthesesLoadBraces
 "to work with fuckin max osx
 set clipboard=unnamed
 
-let g:grails_import_list_file='/Users/miguel/.vim/grailsImportList.txt'
-
+let g:grails_import_list_file=$HOME."/.vim/grailsImportList.txt"
 au FileType groovy call PareditInitBuffer()

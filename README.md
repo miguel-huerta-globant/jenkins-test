@@ -1,5 +1,8 @@
 dotvim
 ======
+
+$ git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
 inicializarlo:
 git submodule update --init bundle/vim-colors-solarized
 
