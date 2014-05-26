@@ -241,3 +241,5 @@ au Syntax * RainbowParenthesesLoadBraces
 set clipboard=unnamed
 
 let g:grails_import_list_file='/Users/miguel/.vim/grailsImportList.txt'
+
+au FileType groovy call PareditInitBuffer()
