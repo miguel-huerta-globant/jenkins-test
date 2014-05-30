@@ -3564,3 +3564,4 @@ groovy.transform.ToString
 org.springframework.security.access.vote.RoleVoter
 org.grails.databinding.BindUsing
 grails.validation.Validateable
+grails.test.mixin.webflow.WebFlowUnitTestMixin

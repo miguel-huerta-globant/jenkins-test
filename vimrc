@@ -22,6 +22,14 @@ Bundle 'scrooloose/nerdcommenter'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-fugitive'
 Bundle 'christoomey/vim-tmux-navigator'
+Bundle 'vim-scripts/paredit.vim'
+Bundle 'tpope/vim-fugitive'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'scrooloose/nerdtree'
+Bundle 'ack.vim'
+Bundle 'kien/ctrlp.vim'
+Bundle 'kien/rainbow_parentheses.vim'
+Bundle 'Yggdroot/indentLine'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -77,7 +85,7 @@ let g:NERDTreeDirArrows=0
 
 let g:fugitive_git_executable='LANG=en_US.UTF8 git'
 
-set background=light
+set background=dark
 set t_Co=16
 colorscheme solarized
 set statusline=%F%m%r%h%w\ 
@@ -239,7 +247,12 @@ au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 
 "to work with fuckin max osx
-set clipboard=unnamed
+"set clipboard=unnamed
 
 let g:grails_import_list_file=$HOME."/.vim/grailsImportList.txt"
 au FileType groovy call PareditInitBuffer()
+"
+" vertical line indentation
+let g:indentLine_color_term = 239
+let g:indentLine_color_gui = '#09AA08'
+let g:indentLine_char = '|'
