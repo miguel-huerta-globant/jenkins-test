@@ -5,6 +5,3 @@ set tw=110
 set formatoptions+=t
 set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
 set list
-call PareditInitBuffer()
-
-
