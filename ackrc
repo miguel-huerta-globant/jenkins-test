@@ -1,9 +1,11 @@
 --type-add=js=.coffee
 --type-add=groovy=.coffee
+--type-add=groovy=.gsp
 
 
 --type-set=coffee=.coffee
 --type-set=groovy=.groovy
+--type-set=gsp=.gsp
 
 --type-set=hbs=.hbs
 --type-set=less=.less

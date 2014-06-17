@@ -32,13 +32,14 @@ Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'Yggdroot/indentLine'
 Bundle 'terryma/vim-multiple-cursors'
 Plugin 'Raimondi/delimitMate' 
+Plugin 'majutsushi/tagbar'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 
-call pathogen#infect()
-call pathogen#incubate()
-call pathogen#helptags()
+"call pathogen#infect()
+"call pathogen#incubate()
+"call pathogen#helptags()
 
 filetype plugin indent on    " required
 
@@ -265,3 +266,7 @@ let g:multi_cursor_next_key='<C-s>'
 let g:multi_cursor_prev_key='<C-p>'
 let g:multi_cursor_skip_key='<C-x>'
 let g:multi_cursor_quit_key='<Esc>'
+
+"tagbar
+let g:tagbar_usearrows = 1
+nnoremap <leader>l :TagbarToggle<CR>

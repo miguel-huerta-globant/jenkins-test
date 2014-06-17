@@ -11,6 +11,9 @@ set fish_plugins vi-mode gvm tmux brew
 
 # Path to your custom folder (default path is $FISH/custom)
 #set fish_custom $HOME/dotfiles/oh-my-fish
+#
+set --export EDITOR "vim -f"
+set -x JAVA_HOME (/usr/libexec/java_home -v 1.7)
 
 # Load oh-my-fish configuration.
 . $fish_path/oh-my-fish.fish
