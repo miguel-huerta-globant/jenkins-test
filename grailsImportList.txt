@@ -3565,3 +3565,6 @@ org.springframework.security.access.vote.RoleVoter
 org.grails.databinding.BindUsing
 grails.validation.Validateable
 grails.test.mixin.webflow.WebFlowUnitTestMixin
+org.apache.shiro.authz.annotation.RequiresPermissions
+grails.plugin.springsecurity.SpringSecurityUtils
+org.apache.shiro.subject.Subject

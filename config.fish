@@ -14,6 +14,7 @@ set fish_plugins vi-mode gvm tmux brew
 #
 set --export EDITOR "vim -f"
 set -x JAVA_HOME (/usr/libexec/java_home -v 1.7)
+set vi_mode_default vi_mode_normal
 
 # Load oh-my-fish configuration.
 . $fish_path/oh-my-fish.fish
