@@ -1,5 +1,7 @@
 set nocompatible
 filetype off 
+"hack, vim don't work with fishshell
+set shell=/bin/sh
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -29,13 +31,16 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'Yggdroot/indentLine'
 Bundle 'kchmck/vim-coffee-script'
+Bundle 'terryma/vim-multiple-cursors'
+Plugin 'Raimondi/delimitMate' 
+Plugin 'majutsushi/tagbar'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 
-call pathogen#infect()
-call pathogen#incubate()
-call pathogen#helptags()
+"call pathogen#infect()
+"call pathogen#incubate()
+"call pathogen#helptags()
 
 filetype plugin indent on    " required
 
@@ -249,9 +254,20 @@ au Syntax * RainbowParenthesesLoadBraces
 "set clipboard=unnamed
 
 let g:grails_import_list_file=$HOME."/.vim/grailsImportList.txt"
-au FileType groovy call PareditInitBuffer()
 "
 " vertical line indentation
 let g:indentLine_color_term = 239
 let g:indentLine_color_gui = '#09AA08'
 let g:indentLine_char = '|'
+
+" Map start key separately from next key
+let g:multi_cursor_use_default_mapping=0
+let g:multi_cursor_start_key='<F6>'
+let g:multi_cursor_next_key='<C-s>'
+let g:multi_cursor_prev_key='<C-p>'
+let g:multi_cursor_skip_key='<C-x>'
+let g:multi_cursor_quit_key='<Esc>'
+
+"tagbar
+let g:tagbar_usearrows = 1
+nnoremap <leader>l :TagbarToggle<CR>
