@@ -15,7 +15,7 @@ Plugin 'gmarik/Vundle.vim'
 " plugins
 Plugin 'airblade/vim-gitgutter'
 Plugin 'Tabular'
-Plugin 'farseer90718/vim-taskwarrior'
+"Plugin 'farseer90718/vim-taskwarrior'
 Plugin 'NathanNeff/grails-vim'
 Bundle 'mileszs/ack.vim'
 Bundle 'sjurgemeyer/vim-grails-import'
