@@ -34,6 +34,7 @@ Bundle 'Yggdroot/indentLine'
 Bundle 'terryma/vim-multiple-cursors'
 Plugin 'Raimondi/delimitMate' 
 Plugin 'majutsushi/tagbar'
+Plugin 'elzr/vim-json'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -53,9 +54,9 @@ syntax on
 set hlsearch
 set number
 set expandtab
-set tabstop=8
-set softtabstop=4
-set shiftwidth=4
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
 set autoindent
 set nobackup
 set foldmethod=syntax
@@ -245,6 +246,20 @@ function! TestResults()
 endfunction
 
 
+" Search for selected text, forwards or backwards.
+vnoremap <silent> * :<C-U>
+  \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
+  \gvy/<C-R><C-R>=substitute(
+  \escape(@", '/\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
+  \gV:call setreg('"', old_reg, old_regtype)<CR>
+
+vnoremap <silent> # :<C-U>
+  \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
+  \gvy?<C-R><C-R>=substitute(
+  \escape(@", '?\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
+  \gV:call setreg('"', old_reg, old_regtype)<CR>
+
+
 au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
@@ -271,3 +286,10 @@ let g:multi_cursor_quit_key='<Esc>'
 "tagbar
 let g:tagbar_usearrows = 1
 nnoremap <leader>l :TagbarToggle<CR>
+
+"json
+let g:vim_json_syntax_conceal=0
+set conceallevel=0
+
+au BufNewFile,BufRead *.schema set filetype=json
+
