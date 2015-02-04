@@ -111,8 +111,13 @@ if exists(":Tabularize")
   vmap <Leader>a: :Tabularize /:\zs<CR>
 endif
 
-set wildignore+=*.class,.git,.hg,.svn,target/**
+if exists("g:ctrlp_user_command")
+  unlet g:ctrlp_user_command
+endif
+"let g:ctrlp_user_command = 'find %s -type f'
+set wildignore+=*.class,.git,.hg,.svn,target/**,build/**,*.bat
 
+let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist|build|infonavit-microsite-tool-admin)|(\.(swp|ico|git|svn))$'
 
 " tagbar support for groovy
  let g:tagbar_type_groovy = {
@@ -265,6 +270,7 @@ au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
+au BufNewFile,BufRead *.schema set filetype=json
 
 "to work with fuckin max osx
 "set clipboard=unnamed
@@ -291,6 +297,3 @@ nnoremap <leader>l :TagbarToggle<CR>
 "json
 let g:vim_json_syntax_conceal=0
 set conceallevel=0
-
-au BufNewFile,BufRead *.schema set filetype=json
-

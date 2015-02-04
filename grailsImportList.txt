@@ -1,3 +1,7 @@
+groovy.util.logging.Log4j
+groovy.util.logging.Slf4j
+groovy.transform.CompileStatic
+grails.plugin.springsecurity.SpringSecurityService
 groovyjarjarantlr.build.ANTLR
 groovyjarjarantlr.ANTLRError
 groovyjarjarantlr.ANTLRException
@@ -478,6 +482,7 @@ org.codehaus.groovy.runtime.callsite.ConstructorSite
 groovy.swing.impl.ContainerFacade
 org.codehaus.groovy.ast.stmt.ContinueStatement
 org.springframework.stereotype.Controller
+org.springframework.stereotype.Service
 org.codehaus.groovy.grails.commons.ControllerArtefactHandler
 org.codehaus.groovy.runtime.ConversionHandler
 org.codehaus.groovy.runtime.ConvertedMap
@@ -2332,3 +2337,5 @@ org.codehaus.groovygen.genArrays.class
 org.codehaus.groovygen.genDgmMath.class
 org.codehaus.groovygen.genMathModification.class
 org.codehaus.groovy.reflection.handlegen
+org.springframework.security.crypto.password.PasswordEncoder
+javax.sql.DataSource
