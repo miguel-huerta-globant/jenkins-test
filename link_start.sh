@@ -3,6 +3,7 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/
 brew install vim
 brew install fish
 brew install wget
+brew install git-extras
 
 git clone git@github.com:hgmiguel/dotvim.git $HOME/.vim
 git clone https://github.com/gmarik/Vundle.vim.git $HOME/.vim/bundle/Vundle.vim
