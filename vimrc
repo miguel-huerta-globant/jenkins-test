@@ -36,6 +36,8 @@ Bundle 'terryma/vim-multiple-cursors'
 Plugin 'Raimondi/delimitMate' 
 Plugin 'majutsushi/tagbar'
 Plugin 'elzr/vim-json'
+Plugin 'plasticboy/vim-markdown'
+Plugin 'jamessan/vim-gnupg'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -93,7 +95,8 @@ let g:fugitive_git_executable='LANG=en_US.UTF8 git'
 
 set background=dark
 set t_Co=16
-colorscheme solarized
+"colorscheme solarized
+
 set statusline=%F%m%r%h%w\ 
 set statusline+=%{fugitive#statusline()}\    
 set statusline+=[%{strlen(&fenc)?&fenc:&enc}]
