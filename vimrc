@@ -85,6 +85,7 @@ set ofu=syntaxcomplete#Complete
 
 
 set term=xterm-256color
+let g:solarized_termcolors=16
 let g:multi_cursor_next_key='<C-m>'
 
 map <C-n> :NERDTreeToggle<CR>
