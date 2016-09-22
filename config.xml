@@ -136,6 +136,7 @@
       <properties class="hudson.model.View$PropertyList"/>
       <jobNames>
         <comparator class="hudson.util.CaseInsensitiveComparator"/>
+        <string>prueba-de-repo-staging</string>
       </jobNames>
       <jobFilters/>
       <columns>
