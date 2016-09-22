@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description></description>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <hudson.plugins.buildblocker.BuildBlockerProperty plugin="build-blocker-plugin@1.7.3">
+      <useBuildBlocker>false</useBuildBlocker>
+      <blockLevel>GLOBAL</blockLevel>
+      <scanQueueFor>DISABLED</scanQueueFor>
+      <blockingJobs></blockingJobs>
+    </hudson.plugins.buildblocker.BuildBlockerProperty>
+  </properties>
+  <scm class="hudson.scm.NullSCM"/>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.tasks.Shell>
+      <command>JBOSS_CLI_SHELL_COMMAND=&quot;java -jar /var/lib/jenkins/wildfly-cli/jboss-cli-client.jar --connect --controller=${WILDFLY_CI_CONTROLLER} --user=${WILDFLY_MGMT_USER} --password=${WILDFLY_MGMT_PASSWORD} &quot;
+
+heapused=$(${JBOSS_CLI_SHELL_COMMAND} &quot;/host=m2-55/server=server-one/core-service=platform-mbean/type=memory:read-attribute(name=heap-memory-usage)&quot;  | grep &quot;used&quot; | awk &apos;{print $3}&apos; | sed &apos;s/L,//&apos;)
+heapmax=$(${JBOSS_CLI_SHELL_COMMAND} &quot;/host=m2-55/server=server-one/core-service=platform-mbean/type=memory:read-attribute(name=heap-memory-usage)&quot; | grep &quot;max&quot; | awk &apos;{print $3}&apos; | sed &apos;s/L//&apos;)
+ 
+freememory=$((heapmax - heapused))
+ 
+if [ $freememory -le 134217728 ]
+ 
+then
+ 
+  echo &quot;JVM Heap memory getting low: Remaining: $freememory bytes&quot; | mail -s &quot;JBoss AS Alert&quot; adminATadmin.com
+  exit 1
+ 
+fi
+
+echo $freememory</command>
+    </hudson.tasks.Shell>
+  </builders>
+  <publishers/>
+  <buildWrappers>
+    <EnvInjectPasswordWrapper plugin="envinject@1.92.1">
+      <injectGlobalPasswords>true</injectGlobalPasswords>
+      <maskPasswordParameters>true</maskPasswordParameters>
+      <passwordEntries/>
+    </EnvInjectPasswordWrapper>
+  </buildWrappers>
+</project>
